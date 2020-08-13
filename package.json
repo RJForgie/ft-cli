@@ -1,0 +1,14 @@
+{
+  "name": "wsj-cli",
+  "version": "1.0.0",
+  "description": "retrieve the headlines from the WSJ",
+  "main": "bin/index.js",
+  "bin": {
+    "hello": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Forgie",
+  "license": "ISC"
+}

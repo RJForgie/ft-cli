@@ -4,11 +4,19 @@
   "description": "retrieve the headlines from the WSJ",
   "main": "bin/index.js",
   "bin": {
-    "hello": "./bin/index.js"
+    "headlines": "./bin/index2.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ryan Forgie",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "boxen": "^4.2.0",
+    "chalk": "^4.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "file-system": "^2.2.2",
+    "progress": "^2.0.3"
+  }
 }

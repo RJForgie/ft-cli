@@ -21,6 +21,7 @@ npm run ft-cli
 - Unit tests
 - Yargs help
 - TypeScript?
+- Status shields
 - Release
 
 ## Contributing

@@ -20,6 +20,7 @@ npm run ft-cli
 - Break out modules
 - Unit tests
 - Yargs help
+- TypeScript?
 - Release
 
 ## Contributing

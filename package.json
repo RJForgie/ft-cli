@@ -1,7 +1,7 @@
 {
-  "name": "wsj-cli",
+  "name": "ft-cli",
   "version": "1.0.0",
-  "description": "retrieve the headlines from the WSJ",
+  "description": "retrieve the headlines from the FT",
   "main": "bin/index.js",
   "bin": {
     "headlines": "./bin/index2.js"

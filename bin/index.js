@@ -1,47 +1,28 @@
 #!/usr/bin/env node
 
-const axios = require("axios");
-const cheerio = require('cheerio');
+const axios = require("axios")
 const { argv } = require('yargs')
-
-const logHeadline = (headline) => {
-  const $ = cheerio.load(headline.html);
-  
-  $('.js-teaser-heading-link').each(( i, element) => {
-    console.log($(element).text())
-  })
-  
-  $(".js-teaser-standfirst-link").each((i, element) => {
-    console.log($(element).text());
-  });
-  
-  console.log("-");
-}
-
-const args = () => {
-  const userInput = argv.number
-  if (userInput && userInput <= 25 ) {
-    return argv.number
-  } else {
-    return 5
-  }
-}
+const { parseUserInput } = require('./parseUserInput')
+const { logHeadlines } = require('./logHeadlines')
 
 const handleResponse = (headlines, numberToOutput) => {
+  let headlinesArray = []
   for(let i = 0; i < numberToOutput; i++) {
-    logHeadline(headlines[i])
+    headlinesArray.push(headlines[i])
   }
+  return headlinesArray
 }
 
-const url = "https://www.ft.com/news-feed/";
+const url = "https://www.ft.com/news-feed/"
 axios.get(url, { headers: { Accept: "application/json" } })
   .then(response => {
-    const numberToOutput = args() 
-    console.log(numberToOutput);
-    console.log("Financial Times headlines:");
-    handleResponse(response.data.items, numberToOutput)
-    console.log("Full articles available here: https://www.ft.com/news-feed");
-  });  
+    const numberToOutput = parseUserInput(argv.number)
+    console.log("Financial Times headlines:")
+    const headlines = handleResponse(response.data.items, numberToOutput)
+    logHeadlines(headlines)
+    console.log("Full articles available here: https://www.ft.com/news-feed")
+  }
+);  
 
 
 

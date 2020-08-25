@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const axios = require("axios")
-const { argv } = require('yargs')
 const { parseUserInput } = require('./parseUserInput')
 const { logHeadlines } = require('./logHeadlines')
+const { argv } = require('yargs')
+  .usage("-number=[number of headlines up to 25]")
 
 const handleResponse = (headlines, numberToOutput) => {
   let headlinesArray = []

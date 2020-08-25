@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+"use strict"
 
 const axios = require("axios")
-const { parseUserInput } = require('./parseUserInput')
+import { parseUserInput } from './parseUserInput'
 const { logHeadlines } = require('./logHeadlines')
 const { argv } = require('yargs')
   .usage("-number=[number of headlines up to 25]")

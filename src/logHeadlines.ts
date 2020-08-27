@@ -1,6 +1,12 @@
-const cheerio = require('cheerio')
+import cheerio  from 'cheerio'
 
-const logHeadlines = (headlines) => {
+export interface Headline {
+  id: string
+  publishedDate: string
+  html: string
+}
+
+export const logHeadlines = (headlines: Headline[]) => {
   headlines.forEach(headline => {
     const $ = cheerio.load(headline.html);
     $('.js-teaser-heading-link').each(( i, element) => {
@@ -14,5 +20,3 @@ const logHeadlines = (headlines) => {
     console.log("-");
   });
 }
-
-exports.logHeadlines = logHeadlines

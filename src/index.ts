@@ -1,30 +1,26 @@
 #!/usr/bin/env node
 "use strict"
 
-const axios = require("axios")
-import { parseUserInput } from './parseUserInput'
-const { logHeadlines } = require('./logHeadlines')
+import axios from "axios"
+// Yargs will support import synax in v16
 const { argv } = require('yargs')
-  .usage("-number=[number of headlines up to 25]")
+.usage("--number=[number of headlines up to 25]")
 
-const handleResponse = (headlines, numberToOutput) => {
-  let headlinesArray = []
-  for(let i = 0; i < numberToOutput; i++) {
-    headlinesArray.push(headlines[i])
-  }
-  return headlinesArray
+import { parseUserInput } from './parseUserInput'
+import { logHeadlines } from './logHeadlines'
+
+const fetchHeadlines = async() => {
+  const url = "https://www.ft.com/news-feed/"
+  const response = await axios.get(url, { headers: { Accept: "application/json" } })
+  const numberToOutput = parseUserInput(argv.number)
+  console.log("--Financial Times headlines--")
+  const items = response.data.items
+  logHeadlines(items.slice(0, numberToOutput))
+  console.log("Full articles available here: https://www.ft.com/news-feed")
 }
 
-const url = "https://www.ft.com/news-feed/"
-axios.get(url, { headers: { Accept: "application/json" } })
-  .then(response => {
-    const numberToOutput = parseUserInput(argv.number)
-    console.log("--Financial Times headlines--")
-    const headlines = handleResponse(response.data.items, numberToOutput)
-    logHeadlines(headlines)
-    console.log("Full articles available here: https://www.ft.com/news-feed")
-  }
-);  
+fetchHeadlines()
+ 
 
 
 

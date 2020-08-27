@@ -1,7 +1,8 @@
 {
   "name": "ft-cli",
   "version": "1.0.0",
-  "description": "retrieve the headlines from the FT",
+  "description": "Retrieve the headlines from the FT",
+  "repository": "https://github.com/RJForgie/ft-cli",
   "main": "./lib/index.js",
   "bin": {
     "ft-cli": "bin/ft-cli"

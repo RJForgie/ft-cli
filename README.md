@@ -2,6 +2,8 @@
 
 FT-CLI is a node base console application that fetches current headlines from the Financial Times.
 
+![Demo Screenshot](https://github.com/RJForgie/ft-cli/blob/master/demo-screenshot.png)
+
 ## Installation
 
 Use the package manager [npm](https://www.npmjs.com/) to install FT-CLI.

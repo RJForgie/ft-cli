@@ -6,25 +6,30 @@ FT-CLI is a node base console application that fetches current headlines from th
 
 ## Installation
 
-Use the package manager [npm](https://www.npmjs.com/) to install FT-CLI.
+Clone the repo and then:
 
 ```
-npm install ft-cli
+npm i
+```
+```
+npm run global
 ```
 
 ## Usage
 
 ```
-npm run ft-cli
+ft-cli
+```
+
+Specify number of headlines:
+```
+ft-cli --number=20
 ```
 
 ## To do
-- Break out modules
 - Unit tests
-- Yargs help
-- TypeScript?
 - Status shields
-- Release
+- Publish to NPM
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
